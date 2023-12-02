@@ -3,6 +3,6 @@ class Admin extends User {
       super(userID, name, email, password, age, phone, isSuper, isAdmin);
     }
   
-    createUser() {
+    createSuper() {
     }
   }
