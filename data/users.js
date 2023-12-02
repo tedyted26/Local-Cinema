@@ -1,4 +1,4 @@
-[
+const USERS = [
     {
         "userID": 1,
         "name": "John Doe",

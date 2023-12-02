@@ -1,4 +1,4 @@
-[
+const SHIFTS = [
     {
         "shiftID": 1,
         "role": "Ticket Seller",

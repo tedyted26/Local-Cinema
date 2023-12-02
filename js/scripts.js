@@ -5,7 +5,7 @@
     */
     // 
 // Scripts
-// 
+//
 
 window.addEventListener('DOMContentLoaded', event => {
 
@@ -24,3 +24,70 @@ window.addEventListener('DOMContentLoaded', event => {
     }
 
 });
+
+//NOT LOGGED INDEX STUFF
+//Togle toast after registering
+const toastTrigger = document.getElementById('liveToastBtn')
+const toastLiveExample = document.getElementById('liveToast')
+
+if (toastTrigger) {
+  const toastBootstrap = bootstrap.Toast.getOrCreateInstance(toastLiveExample)
+  toastTrigger.addEventListener('click', () => {
+    toastBootstrap.show()
+  })
+}
+
+//Populate table of shows
+document.addEventListener("DOMContentLoaded", function () {
+  const tableBody = document.getElementById('tableBody');
+
+  // Use the data from data.js
+  SHOWS.forEach(item => {
+      const row = document.createElement('tr');
+      const [date, time] = item.datetime.split(' ');
+      row.innerHTML = `
+      <td>
+          <div class="thumbnail-container">
+              <div class="thumbnail">
+                  <img src="https://source.unsplash.com/50x50/?random=${item.showID}" alt="Thumbnail">
+              </div>
+              <span>${item.name}</span>
+          </div>
+      </td>
+      <td>${item.description}</td>
+      <td>${date}</td>
+      <td>${time}</td>
+      <td>${item.price}kr</td>
+      <td>${item.room}</td>
+      `;
+      tableBody.appendChild(row);
+  });
+});
+
+// Manage Login
+function login() {
+  const email = document.getElementById('inputEmail').value;
+  const password = document.getElementById('inputPassword').value;
+
+  const user = USERS.find(u => u.email === email);
+  // Check if the user exists
+  if (user) {
+    // Check password
+    if (password === user.password) {
+        if (user.super) {
+            // Redirect to super index page
+            window.location.href = 'index.html';
+        } else if (user.admin) {
+            // Redirect to admin index page
+            window.location.href = 'index.html';
+        } else {
+            // Redirect to user index page
+            window.location.href = 'index.html';
+        }
+    } else {
+        alert('Invalid password. Please try again.');
+    }
+} else {
+    alert('User not found. Please try again.');
+}
+}
