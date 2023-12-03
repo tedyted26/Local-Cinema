@@ -4,7 +4,7 @@ const USERS = [
         "name": "John Doe",
         "email": "john.doe@example.com",
         "password": "securepassword",
-        "age": 25,
+        "birthdate": "13/5/2002",
         "phone": "56123154",
         "isSuper": true,
         "isAdmin": true
@@ -14,7 +14,7 @@ const USERS = [
         "name": "Alice Smith",
         "email": "alice.smith@example.com",
         "password": "strongpassword",
-        "age": 28,
+        "birthdate": "13/5/2002",
         "phone": "56123155",
         "isSuper": false,
         "isAdmin": false
@@ -24,7 +24,7 @@ const USERS = [
         "name": "Admin User",
         "email": "admin.user@example.com",
         "password": "adminpassword",
-        "age": 30,
+        "birthdate": "13/5/2002",
         "phone": "56123156",
         "isSuper": false,
         "isAdmin": true
@@ -34,7 +34,7 @@ const USERS = [
         "name": "Super User",
         "email": "super.user@example.com",
         "password": "superpassword",
-        "age": 35,
+        "birthdate": "13/5/2002",
         "phone": "56123157",
         "isSuper": true,
         "isAdmin": false
@@ -44,7 +44,7 @@ const USERS = [
         "name": "Eva Johnson",
         "email": "eva.johnson@example.com",
         "password": "evapassword",
-        "age": 22,
+        "birthdate": "13/5/2002",
         "phone": "56123158",
         "isSuper": false,
         "isAdmin": false
@@ -54,7 +54,7 @@ const USERS = [
         "name": "Michael Brown",
         "email": "michael.brown@example.com",
         "password": "michaelpassword",
-        "age": 27,
+        "birthdate": "13/5/2002",
         "phone": "56123159",
         "isSuper": false,
         "isAdmin": false
@@ -64,7 +64,7 @@ const USERS = [
         "name": "Super Admin",
         "email": "super.admin@example.com",
         "password": "superadminpassword",
-        "age": 32,
+        "birthdate": "13/5/2002",
         "phone": "56123160",
         "isSuper": true,
         "isAdmin": true
@@ -74,7 +74,7 @@ const USERS = [
         "name": "Olivia Davis",
         "email": "olivia.davis@example.com",
         "password": "oliviapassword",
-        "age": 24,
+        "birthdate": "13/5/2002",
         "phone": "56123161",
         "isSuper": false,
         "isAdmin": false
@@ -84,7 +84,7 @@ const USERS = [
         "name": "Admin Person",
         "email": "admin.person@example.com",
         "password": "adminpersonpassword",
-        "age": 29,
+        "birthdate": "13/5/2002",
         "phone": "56123162",
         "isSuper": false,
         "isAdmin": true
@@ -94,7 +94,7 @@ const USERS = [
         "name": "Sophia Taylor",
         "email": "sophia.taylor@example.com",
         "password": "sophiapassword",
-        "age": 26,
+        "birthdate": "13/5/2002",
         "phone": "56123163",
         "isSuper": false,
         "isAdmin": false

@@ -75,29 +75,27 @@
   
             <!-- Modal Body -->
             <form class="modal-body">
-                <div class="row mb-3">
-                    <div class="col-md-6">
-                        <div class="form-floating mb-3 mb-md-0">
-                            <input class="form-control" id="inputFirstName" type="text" placeholder="Enter your first name" />
-                            <label for="inputFirstName">First name</label>
-                        </div>
-                    </div>
-                    <div class="col-md-6">
-                        <div class="form-floating">
-                            <input class="form-control" id="inputLastName" type="text" placeholder="Enter your last name" />
-                            <label for="inputLastName">Last name</label>
-                        </div>
-                    </div>
+                <div class="form-floating mb-3">
+                    <input class="form-control" id="inputName" type="text" placeholder="Enter your first name" />
+                    <label for="inputName">Full name</label>
                 </div>
                 <div class="form-floating mb-3">
-                    <input class="form-control" id="inputEmail" type="email" placeholder="name@example.com" />
-                    <label for="inputEmail">Email address</label>
+                    <input class="form-control" id="inputPhone" type="tel" placeholder="Enter your phone number" pattern="[0-9]{12}"/>
+                    <label for="inputPhone">Phone number</label>
+                </div>
+                <div class="form-floating mb-3">
+                    <input class="form-control" id="inputDate" type="date" placeholder="YYYY-MM-DD" />
+                    <label for="inputDate">Date of birth</label>
+                </div>
+                <div class="form-floating mb-3">
+                    <input class="form-control" id="inputEmailR" type="email" placeholder="name@example.com" />
+                    <label for="inputEmailR">Email address</label>
                 </div>
                 <div class="row mb-3">
                     <div class="col-md-6">
                         <div class="form-floating mb-3 mb-md-0">
-                            <input class="form-control" id="inputPassword" type="password" placeholder="Create a password" />
-                            <label for="inputPassword">Password</label>
+                            <input class="form-control" id="inputPasswordR" type="password" placeholder="Create a password" />
+                            <label for="inputPasswordR">Password</label>
                         </div>
                     </div>
                     <div class="col-md-6">
@@ -108,7 +106,7 @@
                     </div>
                 </div>
                 <div class="mt-4 mb-0">
-                    <div class="d-grid"><a class="btn btn-dark" data-dismiss="modal" id="liveToastBtn">Create Account</a></div>
+                    <div class="d-grid"><a class="btn btn-dark" id="registerBtn">Create Account</a></div>
                 </div>
             </form>
           </div>

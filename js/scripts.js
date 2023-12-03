@@ -26,16 +26,6 @@ window.addEventListener('DOMContentLoaded', event => {
 });
 
 //NOT LOGGED INDEX STUFF
-//Togle toast after registering
-const toastTrigger = document.getElementById('liveToastBtn')
-const toastLiveExample = document.getElementById('liveToast')
-
-if (toastTrigger) {
-  const toastBootstrap = bootstrap.Toast.getOrCreateInstance(toastLiveExample)
-  toastTrigger.addEventListener('click', () => {
-    toastBootstrap.show()
-  })
-}
 
 //Populate table of shows
 document.addEventListener("DOMContentLoaded", function () {
@@ -91,3 +81,39 @@ function login() {
     alert('User not found. Please try again.');
 }
 }
+
+// Manage register
+function register() {
+  var name = document.getElementById('inputName').value;
+  var phone = document.getElementById('inputPhone').value;
+  var date = document.getElementById('inputDate').value;
+  var email = document.getElementById('inputEmailR').value;
+  var password = document.getElementById('inputPasswordR').value;
+  var confirmPassword = document.getElementById('inputPasswordConfirm').value;
+
+  if (name === '' || phone === '' || date === '' || email === '' || password === '' || confirmPassword === '') {
+      alert('All fields must be filled out');
+      return false;
+  }
+
+  var emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+  if (!emailRegex.test(email)) {
+      alert('Invalid email format');
+      return false;
+  }
+
+  if (password !== confirmPassword) {
+      alert('Password and Confirm Password must match');
+      return false;
+  }
+
+  return true;
+}
+
+
+document.getElementById('registerBtn').addEventListener('click', function () {
+  if (register()) {
+      $('#registerModal').modal('hide');
+      alert("Request sent. Account on it's way!");
+  }
+});
