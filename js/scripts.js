@@ -91,3 +91,36 @@ function login() {
     alert('User not found. Please try again.');
 }
 }
+
+document.addEventListener('DOMContentLoaded', function() {
+    const createShowForm = document.getElementById('createShowForm');
+
+    createShowForm.addEventListener('submit', function(event) {
+        event.preventDefault();
+
+        const showTitle = document.getElementById('showTitle').value;
+        const showDescription = document.getElementById('showDescription').value;
+        const showTime = document.getElementById('showTime').value;
+        const showPrice = document.getElementById('showPrice').value;
+        const showRoom = document.getElementById('showRoom').value;
+        
+        const newShowId = SHOWS.length > 0 ? SHOWS[SHOWS.length - 1].showID + 1 : 1;
+
+        const newShow = {
+            showID: newShowId,
+            name: showTitle,
+            description: showDescription,
+            datetime: showTime,
+            price: parseFloat(showPrice),
+            room: showRoom
+        };
+
+        SHOWS.push(newShow);
+
+        // Clear the form after submission
+        createShowForm.reset();
+
+        // Redirect to the admin view after successful creation
+        window.location.href = 'admin.html'; // Adjust if the admin page has a different path
+    });
+});
