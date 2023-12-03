@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Create Show - LocalCinema</title>
+    <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+        <div class="container-fluid">
+            <a class="navbar-brand" href="#">LocalCinema Admin</a>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                    <li class="nav-item">
+                        <a class="nav-link" href="shows.html">View Shows</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="shifts.html">Show Shifts</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="users.html">List Users</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link active" aria-current="page" href="create-show.html">Create Show</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <header class="bg-primary text-white text-center py-5 mb-4">
+        <div class="container">
+            <h1 class="fw-light">Create a New Show</h1>
+        </div>
+    </header>
+
+    <main class="container">
+        <form id="createShowForm" class="needs-validation" novalidate>
+            <div class="mb-3">
+                <label for="showTitle" class="form-label">Show Title:</label>
+                <input type="text" class="form-control" id="showTitle" name="showTitle" required>
+            </div>
+
+            <div class="mb-3">
+                <label for="showDescription" class="form-label">Description:</label>
+                <textarea class="form-control" id="showDescription" name="showDescription" required></textarea>
+            </div>
+
+            <div class="mb-3">
+                <label for="showTime" class="form-label">Show Time:</label>
+                <input type="datetime-local" class="form-control" id="showTime" name="showTime" required>
+            </div>
+
+            <div class="mb-3">
+                <label for="showPrice" class="form-label">Price:</label>
+                <input type="number" class="form-control" id="showPrice" name="showPrice" required min="0">
+            </div>
+
+            <div class="mb-3">
+                <label for="showRoom" class="form-label">Room:</label>
+                <select class="form-select" id="showRoom" name="showRoom" required>
+                    <option value="A1">Room A1</option>
+                    <option value="A1">Room A2</option>
+                    <option value="A1">Room A3</option>
+                    <option value="B2">Room B1</option>
+                    <option value="A1">Room B2</option>
+                    <option value="C3">Room C1</option>
+                </select>
+            </div>
+
+            <button type="submit" class="btn btn-primary">Create Show</button>
+        </form>
+    </main>
+
+    <footer class="py-4 bg-dark text-white-50">
+        <div class="container text-center">
+            <small>LocalCinema ©</small>
+        </div>
+    </footer>
+
+    <script src="data/shows.js"></script>
+    <script src="js/scripts.js"></script>
+</body>
+</html>
