@@ -5,81 +5,60 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Create Show - LocalCinema</title>
     <link rel="stylesheet" href="css/styles.css">
+    <script src="https://use.fontawesome.com/releases/v6.3.0/js/all.js" crossorigin="anonymous"></script>
 </head>
 <body>
-    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-        <div class="container-fluid">
-            <a class="navbar-brand" href="#">LocalCinema Admin</a>
-            <div class="collapse navbar-collapse" id="navbarNav">
-                <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-                    <li class="nav-item">
-                        <a class="nav-link" href="shows.html">View Shows</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="shifts.html">Show Shifts</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="users.html">List Users</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link active" aria-current="page" href="create-show.html">Create Show</a>
-                    </li>
-                </ul>
-            </div>
-        </div>
+    <nav class="sb-topnav navbar navbar-expand navbar-dark bg-dark">
+        <!-- Navbar Brand-->
+        <a class="navbar-brand ps-3" href="admin.html">LocalCinema Admin</a>
+        <!-- Sidebar Toggle-->
+        <button class="btn btn-link btn-sm order-1 order-lg-0 me-4 me-lg-0" id="sidebarToggle" href="#!"><i class="fas fa-bars"></i></button>
     </nav>
-
-    <header class="bg-primary text-white text-center py-5 mb-4">
-        <div class="container">
-            <h1 class="fw-light">Create a New Show</h1>
+    <div id="layoutSidenav">
+        <div id="layoutSidenav_nav">
+            <nav class="sb-sidenav accordion sb-sidenav-dark" id="sidenavAccordion">
+                <div class="sb-sidenav-menu">
+                    <div class="nav">
+                        <a class="nav-link" href="shows.html">
+                            <div class="sb-nav-link-icon"><i class="fas fa-film"></i></div>
+                            View Shows
+                        </a>
+                        <a class="nav-link" href="shifts.html">
+                            <div class="sb-nav-link-icon"><i class="fas fa-users"></i></div>
+                            Show Shifts
+                        </a>
+                        <a class="nav-link" href="users.html">
+                            <div class="sb-nav-link-icon"><i class="fas fa-user-friends"></i></div>
+                            List Users
+                        </a>
+                        <a class="nav-link active" href="create-show.html">
+                            <div class="sb-nav-link-icon"><i class="fas fa-plus-circle"></i></div>
+                            Create Show
+                        </a>
+                    </div>
+                </div>
+            </nav>
         </div>
-    </header>
-
-    <main class="container">
-        <form id="createShowForm" class="needs-validation" novalidate>
-            <div class="mb-3">
-                <label for="showTitle" class="form-label">Show Title:</label>
-                <input type="text" class="form-control" id="showTitle" name="showTitle" required>
-            </div>
-
-            <div class="mb-3">
-                <label for="showDescription" class="form-label">Description:</label>
-                <textarea class="form-control" id="showDescription" name="showDescription" required></textarea>
-            </div>
-
-            <div class="mb-3">
-                <label for="showTime" class="form-label">Show Time:</label>
-                <input type="datetime-local" class="form-control" id="showTime" name="showTime" required>
-            </div>
-
-            <div class="mb-3">
-                <label for="showPrice" class="form-label">Price:</label>
-                <input type="number" class="form-control" id="showPrice" name="showPrice" required min="0">
-            </div>
-
-            <div class="mb-3">
-                <label for="showRoom" class="form-label">Room:</label>
-                <select class="form-select" id="showRoom" name="showRoom" required>
-                    <option value="A1">Room A1</option>
-                    <option value="A1">Room A2</option>
-                    <option value="A1">Room A3</option>
-                    <option value="B2">Room B1</option>
-                    <option value="A1">Room B2</option>
-                    <option value="C3">Room C1</option>
-                </select>
-            </div>
-
-            <button type="submit" class="btn btn-primary">Create Show</button>
-        </form>
-    </main>
-
-    <footer class="py-4 bg-dark text-white-50">
-        <div class="container text-center">
-            <small>LocalCinema ©</small>
+        <div id="layoutSidenav_content">
+            <main>
+                <div class="container-fluid px-4">
+                    <h1 class="mt-4">Create a New Show</h1>
+                    <form id="createShowForm" class="needs-validation" novalidate>
+                        <!-- Form content goes here -->
+                        <!-- ... -->
+                    </form>
+                </div>
+            </main>
+            <footer class="py-4 bg-light mt-auto">
+                <div class="container-fluid px-4">
+                    <div class="d-flex align-items-center justify-content-between small">
+                        <div class="text-muted">LocalCinema ©</div>
+                    </div>
+                </div>
+            </footer>
         </div>
-    </footer>
-
-    <script src="data/shows.js"></script>
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js" crossorigin="anonymous"></script>
     <script src="js/scripts.js"></script>
 </body>
 </html>
