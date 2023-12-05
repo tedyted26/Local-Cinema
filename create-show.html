@@ -44,8 +44,39 @@
                 <div class="container-fluid px-4">
                     <h1 class="mt-4">Create a New Show</h1>
                     <form id="createShowForm" class="needs-validation" novalidate>
-                        <!-- Form content goes here -->
-                        <!-- ... -->
+                        <div class="mb-3">
+                            <label for="showTitle" class="form-label">Show Title:</label>
+                            <input type="text" class="form-control" id="showTitle" name="showTitle" required>
+                        </div>
+
+                        <div class="mb-3">
+                            <label for="showDescription" class="form-label">Description:</label>
+                            <textarea class="form-control" id="showDescription" name="showDescription" required></textarea>
+                        </div>
+
+                        <div class="mb-3">
+                            <label for="showTime" class="form-label">Show Time:</label>
+                            <input type="datetime-local" class="form-control" id="showTime" name="showTime" required>
+                        </div>
+
+                        <div class="mb-3">
+                            <label for="showPrice" class="form-label">Price:</label>
+                            <input type="number" class="form-control" id="showPrice" name="showPrice" required min="0">
+                        </div>
+
+                        <div class="mb-3">
+                            <label for="showRoom" class="form-label">Room:</label>
+                            <select class="form-select" id="showRoom" name="showRoom" required>
+                                <option value="A1">Room A1</option>
+                                <option value="A1">Room A2</option>
+                                <option value="A1">Room A3</option>
+                                <option value="B2">Room B1</option>
+                                <option value="A1">Room B2</option>
+                                <option value="C3">Room C1</option>
+                            </select>
+                        </div>
+
+                        <button type="submit" class="btn btn-primary">Create Show</button>
                     </form>
                 </div>
             </main>
