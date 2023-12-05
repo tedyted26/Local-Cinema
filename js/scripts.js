@@ -26,6 +26,7 @@ window.addEventListener('DOMContentLoaded', event => {
 });
 
 //NOT LOGGED INDEX STUFF
+// also used by logged_in_view_shows.html
 
 //Populate table of shows
 document.addEventListener("DOMContentLoaded", function () {
@@ -51,7 +52,36 @@ document.addEventListener("DOMContentLoaded", function () {
       <td>${item.room}</td>
       `;
       tableBody.appendChild(row);
+      console.log('Row added, shows:', item);
   });
+});
+
+// logged_in_show_shifts.html
+//Populate table of shifts
+document.addEventListener("DOMContentLoaded", function () {
+    const tableBodyShifts = document.getElementById('tableBodyShifts');
+  
+    // Use the data from data.js
+    SHIFTS.forEach(item => {
+        const row = document.createElement('tr');
+        const [date, time] = item.dateTime.split(' ');
+        var assignedShow;
+        SHOWS.forEach(showItem => {
+            if(showItem.showID == item.assignedShow){
+                assignedShow = showItem.name;
+            }
+        });
+        row.innerHTML = `
+        <td>${item.role}</td>
+        <td>${item.place}</td>
+        <td>${date}</td>
+        <td>${time}</td>
+        <td>${assignedShow}</td>
+        `;
+        tableBodyShifts.appendChild(row);
+        // Log the data for debugging
+        console.log('Row added, shifts:', item);
+    });
 });
 
 // Manage Login
