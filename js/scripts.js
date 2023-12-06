@@ -22,7 +22,6 @@ window.addEventListener('DOMContentLoaded', event => {
             localStorage.setItem('sb|sidebar-toggle', document.body.classList.contains('sb-sidenav-toggled'));
         });
     }
-
 });
 
 //NOT LOGGED INDEX STUFF
@@ -63,24 +62,26 @@ document.addEventListener("DOMContentLoaded", function () {
   
     // Use the data from data.js
     SHIFTS.forEach(item => {
-        const row = document.createElement('tr');
-        const [date, time] = item.dateTime.split(' ');
-        var assignedShow;
-        SHOWS.forEach(showItem => {
-            if(showItem.showID == item.assignedShow){
-                assignedShow = showItem.name;
-            }
-        });
-        row.innerHTML = `
-        <td>${item.role}</td>
-        <td>${item.place}</td>
-        <td>${date}</td>
-        <td>${time}</td>
-        <td>${assignedShow}</td>
-        `;
-        tableBodyShifts.appendChild(row);
-        // Log the data for debugging
-        console.log('Row added, shifts:', item);
+        currentShift = new Shift(item.id, item.role, item.place, item.dateTime, item.duration, item.volunteersNeeded, item.assignedVolunteers, item.assignedShow);
+        if(currentShift.isShiftAvailable()){
+            const row = document.createElement('tr');
+            const [date, time] = item.dateTime.split(' ');
+            var assignedShow;
+            SHOWS.forEach(showItem => {
+                if(showItem.showID == item.assignedShow){
+                    assignedShow = showItem.name;
+                }
+            });
+            row.innerHTML = `
+            <td>${item.role}</td>
+            <td>${item.place}</td>
+            <td>${date}</td>
+            <td>${time}</td>
+            <td>${item.duration}m</td>
+            <td>${assignedShow}</td>
+            `;
+            tableBodyShifts.appendChild(row);
+        }
     });
 });
 
