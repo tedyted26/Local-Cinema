@@ -138,14 +138,19 @@ function register() {
       return false;
   }
 
-  return true;
+  const newUserId = USERS.length > 0 ? USERS[USERS.length - 1].userID + 1 : 1;
+
+  newUser = new User(newUserId, name, email, password, date, phone, false, false)
+  
+  return newUser.createUser();
 }
 
 
 document.getElementById('registerBtn').addEventListener('click', function () {
   if (register()) {
-      $('#registerModal').modal('hide');
-      alert("Request sent. Account on it's way!");
+        alert("Registration complete!");
+        $('#registerModal').modal('hide');
+      //alert("Request sent. Account on it's way!");
   }
 });
 
