@@ -62,7 +62,7 @@ document.addEventListener("DOMContentLoaded", function () {
     const tableBodyShifts = document.getElementById('tableBodyShifts');
   
     // Use the data from data.js
-    SHIFTS.forEach(item => {
+    SHIFTS.forEach(item => {     
         const row = document.createElement('tr');
         const [date, time] = item.dateTime.split(' ');
         var assignedShow;
@@ -99,10 +99,10 @@ function login() {
             window.location.href = 'index.html';
         } else if (user.admin) {
             // Redirect to admin index page
-            window.location.href = 'index.html';
+            window.location.href = 'admin.html';
         } else {
             // Redirect to user index page
-            window.location.href = 'index.html';
+            window.location.href = 'logged_in_show_shifts.html';
         }
     } else {
         alert('Invalid password. Please try again.');
