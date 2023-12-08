@@ -163,6 +163,7 @@ document.addEventListener('DOMContentLoaded', function() {
     }
 
     createShowForm.addEventListener('submit', function(event) {
+        console.log('Form submission event triggered'); // Debugging line
         event.preventDefault();
 
         const showTitle = document.getElementById('showTitle');
@@ -189,10 +190,10 @@ document.addEventListener('DOMContentLoaded', function() {
         }
 
         // Example admin user, in a real scenario, you'd get this from your user session or similar
-        const admin = new Admin(1, 'John Doe', 'john@example.com', 'password', 30, '1234567890', true, true);
+        const admin = new admin(1, 'John Doe', 'john@example.com', 'password', 30, '1234567890', true, true);
 
         // Call the createShow method of the Admin instance
-        admin.createShow(
+        const resultMessage = admin.createShow(
             showTitle.value,
             showDescription.value,
             showTime.value,
@@ -200,10 +201,15 @@ document.addEventListener('DOMContentLoaded', function() {
             showRoom.value
         );
 
-        // Clear the form after submission
-        createShowForm.reset();
+        console.log('Result Message:', resultMessage); // Add this for debugging
 
-        // Redirect to the admin view after successful creation
-        window.location.href = 'admin.html';
+        alert(resultMessage);
+
+        if (resultMessage === 'Show created successfully') {
+            // Clear the form after successful submission
+            createShowForm.reset();
+            // Optionally redirect to the admin view
+            window.location.href = 'admin.html';
+        }
     });
 });

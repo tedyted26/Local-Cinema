@@ -2,9 +2,8 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Create Show - LocalCinema</title>
-    <link rel="stylesheet" href="css/styles.css">
+    <title>LocalCinema Admin Dashboard</title>
+    <link href="css/styles.css" rel="stylesheet">
     <script src="https://use.fontawesome.com/releases/v6.3.0/js/all.js" crossorigin="anonymous"></script>
 </head>
 <body>
@@ -13,6 +12,18 @@
         <a class="navbar-brand ps-3" href="admin.html">LocalCinema Admin</a>
         <!-- Sidebar Toggle-->
         <button class="btn btn-link btn-sm order-1 order-lg-0 me-4 me-lg-0" id="sidebarToggle" href="#!"><i class="fas fa-bars"></i></button>
+        <!-- Navbar-->
+        <ul class="navbar-nav ms-auto ms-md-0 me-3 me-lg-4">
+            <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle" id="navbarDropdown" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false"><i class="fas fa-user fa-fw"></i></a>
+                <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
+                    <!-- <li><a class="dropdown-item" href="#!">Settings</a></li> -->
+                    <!-- <li><a class="dropdown-item" href="#!">Activity Log</a></li> -->
+                    <!-- <li><hr class="dropdown-divider" /></li> -->
+                    <li><a class="dropdown-item" href="#!">Logout</a></li>
+                </ul>
+            </li>
+        </ul>
     </nav>
     <div id="layoutSidenav">
         <div id="layoutSidenav_nav">
@@ -31,7 +42,7 @@
                             <div class="sb-nav-link-icon"><i class="fas fa-user-friends"></i></div>
                             List Users
                         </a>
-                        <a class="nav-link active" href="create-show.html">
+                        <a class="nav-link" href="create-show.html">
                             <div class="sb-nav-link-icon"><i class="fas fa-plus-circle"></i></div>
                             Create Show
                         </a>
@@ -42,42 +53,27 @@
         <div id="layoutSidenav_content">
             <main>
                 <div class="container-fluid px-4">
-                    <h1 class="mt-4">Create a New Show</h1>
-                    <form id="createShowForm" class="needs-validation" novalidate>
-                        <div class="mb-3">
-                            <label for="showTitle" class="form-label">Show Title:</label>
-                            <input type="text" class="form-control" id="showTitle" name="showTitle" required>
+                    <h1 class="mt-4">Users</h1>
+                    <div class="card mb-4">
+                        <div class="card-body">
+                            <table id="usersTable" class="table">
+                                <thead>
+                                    <tr>
+                                        <th>User</th>
+                                        <th>Email</th>
+                                        <th>Phone</th>
+                                        <th>Role</th>
+                                        <th>Place</th>
+                                        <th>Shift Time</th>
+                                        <th>Show Name</th>
+                                        <th>Show Time</th>
+                                        <th>Date</th>
+                                    </tr>
+                                </thead>
+                                <tbody id="usersTableBody"></tbody>
+                            </table>
                         </div>
-
-                        <div class="mb-3">
-                            <label for="showDescription" class="form-label">Description:</label>
-                            <textarea class="form-control" id="showDescription" name="showDescription" required></textarea>
-                        </div>
-
-                        <div class="mb-3">
-                            <label for="showTime" class="form-label">Show Time:</label>
-                            <input type="datetime-local" class="form-control" id="showTime" name="showTime" required>
-                        </div>
-
-                        <div class="mb-3">
-                            <label for="showPrice" class="form-label">Price:</label>
-                            <input type="number" class="form-control" id="showPrice" name="showPrice" required min="0">
-                        </div>
-
-                        <div class="mb-3">
-                            <label for="showRoom" class="form-label">Room:</label>
-                            <select class="form-select" id="showRoom" name="showRoom" required>
-                                <option value="A1">Room A1</option>
-                                <option value="A1">Room A2</option>
-                                <option value="A1">Room A3</option>
-                                <option value="B2">Room B1</option>
-                                <option value="A1">Room B2</option>
-                                <option value="C3">Room C1</option>
-                            </select>
-                        </div>
-
-                        <button type="submit" class="btn btn-primary">Create Show</button>
-                    </form>
+                    </div>
                 </div>
             </main>
             <footer class="py-4 bg-light mt-auto">
@@ -95,10 +91,12 @@
         </div>
     </div>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js" crossorigin="anonymous"></script>
+    <script src="js/scripts.js"></script>
     <script src="data/users.js"></script>
-    <script src="models/admin.js"></script>
     <script src="data/shifts.js"></script>
     <script src="data/shows.js"></script>
-    <script src="js/scripts.js"></script>
+    <script src="js/populate-users.js"></script>
+    <script src="js/datatables-simple-demo.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/simple-datatables@7.1.2/dist/umd/simple-datatables.min.js"></script>
 </body>
 </html>
