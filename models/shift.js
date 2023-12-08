@@ -1,4 +1,12 @@
 class Shift {
+    shiftID
+    role
+    place
+    dateTime
+    duration
+    volunteersNeeded
+    assignedVolunteers
+    assignedShow
     constructor(shiftID, role, place, dateTime, duration, volunteersNeeded, assignedVolunteers, assignedShow) {
       this.shiftID = shiftID;
       this.role = role;
@@ -11,6 +19,13 @@ class Shift {
     }
     
     isShiftAvailable(){
+      try{
+        if(!Array.isArray(this.assignedVolunteers)) throw "assignedVolunteers is broken"
+        if(!Number.isInteger(this.volunteersNeeded)) throw "volunteersNeeded is broken"
+      }
+      catch(err){
+        console.log("Error: " + err);
+      }
       var isAvailable;
       if(this.volunteersNeeded > this.assignedVolunteers.length){
         isAvailable = true;
@@ -37,3 +52,4 @@ class Shift {
 
     }
   }
+  module.exports = Shift;
