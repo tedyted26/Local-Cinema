@@ -188,18 +188,17 @@ document.addEventListener('DOMContentLoaded', function() {
             return;
         }
 
-        const newShowId = SHOWS.length > 0 ? SHOWS[SHOWS.length - 1].showID + 1 : 1;
+        // Example admin user, in a real scenario, you'd get this from your user session or similar
+        const admin = new Admin(1, 'John Doe', 'john@example.com', 'password', 30, '1234567890', true, true);
 
-        const newShow = {
-            showID: newShowId,
-            name: showTitle.value,
-            description: showDescription.value,
-            datetime: showTime.value,
-            price: priceValue,
-            room: showRoom.value
-        };
-
-        SHOWS.push(newShow);
+        // Call the createShow method of the Admin instance
+        admin.createShow(
+            showTitle.value,
+            showDescription.value,
+            showTime.value,
+            showPrice.value,
+            showRoom.value
+        );
 
         // Clear the form after submission
         createShowForm.reset();
