@@ -158,32 +158,53 @@ document.getElementById('registerBtn').addEventListener('click', function () {
 document.addEventListener('DOMContentLoaded', function() {
     const createShowForm = document.getElementById('createShowForm');
 
+    if (!createShowForm) {
+        console.error('Create Show Form not found');
+        return;
+    }
+
     createShowForm.addEventListener('submit', function(event) {
         event.preventDefault();
 
-        const showTitle = document.getElementById('showTitle').value;
-        const showDescription = document.getElementById('showDescription').value;
-        const showTime = document.getElementById('showTime').value;
-        const showPrice = document.getElementById('showPrice').value;
-        const showRoom = document.getElementById('showRoom').value;
-        
-        const newShowId = SHOWS.length > 0 ? SHOWS[SHOWS.length - 1].showID + 1 : 1;
+        const showTitle = document.getElementById('showTitle');
+        const showDescription = document.getElementById('showDescription');
+        const showTime = document.getElementById('showTime');
+        const showPrice = document.getElementById('showPrice');
+        const showRoom = document.getElementById('showRoom');
 
-        const newShow = {
-            showID: newShowId,
-            name: showTitle,
-            description: showDescription,
-            datetime: showTime,
-            price: parseFloat(showPrice),
-            room: showRoom
-        };
+        if (!showTitle || !showDescription || !showTime || !showPrice || !showRoom) {
+            console.error('Some form elements are missing.');
+            return;
+        }
 
-        SHOWS.push(newShow);
+        if (!showTitle.value.trim() || !showDescription.value.trim() || !showTime.value.trim()) {
+            alert('Please fill in all required fields.');
+            return;
+        }
+
+        // Validate price to be a positive number
+        const priceValue = parseFloat(showPrice.value);
+        if (isNaN(priceValue) || priceValue < 0) {
+            alert('Please enter a valid price.');
+            return;
+        }
+
+        // Example admin user, in a real scenario, you'd get this from your user session or similar
+        const admin = new Admin(1, 'John Doe', 'john@example.com', 'password', 30, '1234567890', true, true);
+
+        // Call the createShow method of the Admin instance
+        admin.createShow(
+            showTitle.value,
+            showDescription.value,
+            showTime.value,
+            showPrice.value,
+            showRoom.value
+        );
 
         // Clear the form after submission
         createShowForm.reset();
 
         // Redirect to the admin view after successful creation
-        window.location.href = 'admin.html'; // Adjust if the admin page has a different path
+        window.location.href = 'admin.html';
     });
 });
