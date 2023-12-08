@@ -141,8 +141,9 @@ function register() {
   const newUserId = USERS.length > 0 ? USERS[USERS.length - 1].userID + 1 : 1;
 
   newUser = new User(newUserId, name, email, password, date, phone, false, false)
-  
-  return newUser.createUser();
+
+  if (USERS.length != newUser.createUser(USERS).length) return true
+  else return false
 }
 
 

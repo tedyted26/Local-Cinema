@@ -1,4 +1,12 @@
 class User {
+    userID
+    name
+    email
+    password
+    birthdate
+    phone
+    isSuper
+    isAdmin
     constructor(userID, name, email, password, birthdate, phone, isSuper, isAdmin) {
       this.userID = userID;
       this.name = name;
@@ -10,14 +18,14 @@ class User {
       this.isAdmin = isAdmin;
     }
 
-    //Saves the user into the json
-    createUser(){
+    //Saves the user
+    createUser(USERS){
       // Checks if user already exists
       if (USERS.find(u => u.email === this.email)){
         alert("This account already exists!");
-        return false
+        return USERS
       }
-      newUser = {
+      const newUser = {
         "userID": this.userID,
         "name": this.name,
         "email": this.email,
@@ -30,6 +38,8 @@ class User {
       // Add the new user to the array
       USERS.push(newUser);
   
-      return true
+      return USERS;
     }
   }
+
+  module.exports = User

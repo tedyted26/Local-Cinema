@@ -100,3 +100,5 @@ const USERS = [
         "isAdmin": false
     }    
 ]
+
+module.exports = USERS
