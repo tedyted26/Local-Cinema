@@ -1,39 +1,26 @@
-const Shift = require("../models/shift.js")
-var shiftint = 1
-var myShift = new Shift(shiftint,1,1,1,1,1,1,1);
-console.log(myShift.shiftID);
+const Shift = require('../models/shift.js');
 
-// assignedVolunteers < volunteersNeeded = true
-VN1 = 3
-AV1 = [2, 5]
-var shiftOne = new Shift(1,1,1,1,1, VN1, AV1,1)
-console.log("assignedVolunteers < volunteersNeeded = true")
-console.log("returned value: " + shiftOne.isShiftAvailable())
+describe('Shift class', () => {
+  test('should return true when volunteers are needed', () => {
+    const shift = new Shift(1, 'Role', 'Place', '2023-01-01', 2, 3, [1, 2], 'Show');
+    const result = shift.isShiftAvailable();
 
-// assignedVolunteers > volunteersNeeded = false
-VN2 = 2
-AV2 = [1,2,3,4,5]
-var shiftTwo = new Shift(1,1,1,1,1, VN2, AV2,1)
-console.log("assignedVolunteers > volunteersNeeded = false")
-console.log("returned value: " + shiftTwo.isShiftAvailable())
+    expect(result).toBe(true);
+  });
 
-// assignedVolunteers != [] = error
-VN3 = 5
-AV3 = "big"
-var shiftThree = new Shift(1,1,1,1,1, VN3, AV3,1)
-console.log("assignedVolunteers != [] = error")
-console.log("returned value: " + shiftThree.isShiftAvailable())
+  test('should return false when volunteers are not needed', () => {
+    const shift = new Shift(2, 'Role', 'Place', '2023-01-01', 2, 0, [1, 2], 'Show');
+    const result = shift.isShiftAvailable();
 
-// volunteersNeeded != int = error
-VN4 = "jens"
-AV4 = [3, 5]
-var shiftFour = new Shift(1,1,1,1,1, VN4, AV4,1)
-console.log("volunteersNeeded != int = error")
-console.log("returned value: " + shiftFour.isShiftAvailable())
+    expect(result).toBe(false);
+  });
 
-// assignedVolunteers == volunteersNeeded = false
-VN5 = 3
-AV5 = [5,6,7]
-var shiftFive = new Shift(1,1,1,1,1, VN5, AV5,1)
-console.log("assignedVolunteers == volunteersNeeded = false")
-console.log("returned value: " + shiftFive.isShiftAvailable())
+  test('should handle errors', () => {
+    const consoleLogMock = jest.spyOn(console, 'log').mockImplementation(() => {});
+    const shift = new Shift(3, 'Role', 'Place', '2023-01-01', 2, 'invalid', [1, 2], 'Show');
+    const result = shift.isShiftAvailable();
+  
+    expect(result).toBe(false);
+    consoleLogMock.mockRestore();
+  });
+});

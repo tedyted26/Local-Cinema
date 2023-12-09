@@ -1,5 +1,3 @@
-// User.test.js
-
 const User = require('../models/user.js');
 
 let USERS = [];

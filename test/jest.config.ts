@@ -25,7 +25,7 @@ const config = {
 
   // The directory where Jest should output its coverage files
   coverageDirectory: "coverage",
-  collectCoverageFrom: ["user.test.js"],
+  collectCoverageFrom: ["./user.test.js", "./admin.test.js", "./shift.test.js"],
   coverageReporters: ["lcov", "text-summary"],
 
   // An array of regexp pattern strings used to skip coverage collection
@@ -69,6 +69,11 @@ const config = {
 
   // A set of global variables that need to be available in all test environments
   // globals: {},
+  globals: {
+    'babel-jest': {
+      presets: ['@babel/preset-env'],
+    },
+  },
 
   // The maximum amount of workers used to run your tests. Can be specified as % or a number. E.g. maxWorkers: 10% will use 10% of your CPU amount + 1 as the maximum worker number. maxWorkers: 2 will use a maximum of 2 workers.
   // maxWorkers: "50%",
@@ -147,7 +152,7 @@ const config = {
   // snapshotSerializers: [],
 
   // The test environment that will be used for testing
-  testEnvironment: "jsdom",
+  //testEnvironment: "jsdom",
 
   // Options that will be passed to the testEnvironment
   // testEnvironmentOptions: {},
@@ -176,7 +181,9 @@ const config = {
   // testRunner: "jest-circus/runner",
 
   // A map from regular expressions to paths to transformers
-  // transform: undefined,
+  transform: {
+    "^.+\\.jsx?$": "babel-jest",
+  },
 
   // An array of regexp pattern strings that are matched against all source file paths, matched files will skip transformation
   // transformIgnorePatterns: [

@@ -35,21 +35,5 @@ class Shift {
       }
       return isAvailable;
     }
-
-    userHasShift(){
-
-    }
-
-    assignShift(){
-
-    }
-
-    cancelShift(){
-
-    }
-
-    addToShift(){
-
-    }
   }
   module.exports = Shift;

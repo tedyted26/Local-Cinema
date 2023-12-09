@@ -191,7 +191,7 @@ document.addEventListener('DOMContentLoaded', function() {
         }
 
         // Example admin user, in a real scenario, you'd get this from your user session or similar
-        const admin = new admin(1, 'John Doe', 'john@example.com', 'password', 30, '1234567890', true, true);
+        const admin = new Admin(1, 'John Doe', 'john@example.com', 'password', 30, '1234567890', true, true);
 
         // Call the createShow method of the Admin instance
         const resultMessage = admin.createShow(
@@ -199,7 +199,8 @@ document.addEventListener('DOMContentLoaded', function() {
             showDescription.value,
             showTime.value,
             showPrice.value,
-            showRoom.value
+            showRoom.value,
+            SHOWS
         );
 
         console.log('Result Message:', resultMessage); // Add this for debugging

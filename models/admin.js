@@ -1,11 +1,11 @@
-import User from '.user.js';
+const User = require('./user.js');
 
-export class Admin extends User {
+class Admin extends User {
   constructor(userID, name, email, password, age, phone, isSuper, isAdmin) {
       super(userID, name, email, password, age, phone, isSuper, isAdmin);
   }
 
-  createShow(title, description, datetime, price, room) {
+  createShow(title, description, datetime, price, room, SHOWS) {
       // Calculate the new show ID
       const newShowId = SHOWS.length > 0 ? SHOWS[SHOWS.length - 1].showID + 1 : 1;
 
@@ -19,15 +19,7 @@ export class Admin extends User {
           room: room
       };
 
-      if (SHOWS.includes(newShow)) {
-        console.log('Show created successfully'); // Debugging line
-        return 'Show created successfully';
-    } else {
-        console.log('Failed to create show'); // Debugging line
-        return 'Failed to create show';
-    }
-
-      // Add the new show to the SHOWS array
+       // Add the new show to the SHOWS array
       SHOWS.push(newShow);
 
       // After adding the new show to SHOWS
@@ -38,3 +30,4 @@ export class Admin extends User {
       }
   }
 }
+module.exports = Admin
